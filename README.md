@@ -62,5 +62,11 @@ image
  Now, we will move onto practical 2, in which there is creation of Fetch sequence, program counter and saving and after that our basic computer will be completed and we can save our machine as BasicComouter.cpu
  
 
+# Practical-2
+# Create the Fetch Routine of the instruction Cycle
+| Aim | To create the fetch(and decode) routine of the instruction Cycle and observe it one microinstruction at a time. |
+|:---|:---:|
+| Tool | CPU Sim 4.0.11(Java 8 with JavaFX) |
 
-#
+## Theory
+Every instruction cycle begins with the same fetch and decode phase. In Mano's Basuc Computer it takes three clock pulsed, controlled by thr sequence counter outputs T0, T1 and T2
