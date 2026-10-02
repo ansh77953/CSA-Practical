@@ -71,7 +71,7 @@ image
 ## Theory
 Every instruction cycle begins with the same fetch and decode phase. In Mano's Basuc Computer it takes three clock pulsed, controlled by thr sequence counter outputs T0, T1 and T2
 |T0: AR<-PC |
+|:---:|
 |T1: IR<-M[AR], PC<-PC+1 |
 |T2: D0...D7<-Decode IR(12-14), AR<-IR(0-11), I<-IR(15) |
-|:---:|
 
