@@ -168,4 +168,29 @@ SUM: .data 1 0 ; result
 
 <img width="1917" height="1198" alt="image" src="https://github.com/user-attachments/assets/7b4a6cf8-a7ba-499c-a64e-ff0acdf40b99" />
 
+Modified the IR(0–11) → AR connection by setting both "srcStartBit" and "destStartBit" to 0, ensuring that CPU Sim maps the address to RAM correctly without any bit shifting.
+
+## Running
+
+<img width="1600" height="672" alt="Image" src="https://github.com/user-attachments/assets/1b93961b-085d-48b3-875c-292842b8eb49" />
+
+#### After Giving first input:
+
+<img width="1615" height="690" alt="Image" src="https://github.com/user-attachments/assets/8b013f9d-558f-4e67-b37c-9c6c6f3b955a" />
+
+#### After Giving the second input:
+
+<img width="1568" height="687" alt="Image" src="https://github.com/user-attachments/assets/cf74eeb5-735a-47b2-9526-d1527bbcc5b8" />
+
+## Observation 
+| Input(s) typed | Output displayed|
+|:---|:---:|
+| 25, 17 | 42 |
+| 31, 22 | 53 |
+| 1, -1 | 0 |
+
+## Result 
+The program correctly adds two user-entered numbers; 25 + 17 = 42
+
+---
 
