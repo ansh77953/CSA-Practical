@@ -1,3 +1,6 @@
+After T2 the control unit knows which instruction is in IR and AR already holds its address field, so the 
+execute phase starts at T3. In CPU Sim the fetch routine is a list of microinstructions that runs before every 
+execute sequence:
 # CSA-Practical
 # CPUSim practicals
 ---
