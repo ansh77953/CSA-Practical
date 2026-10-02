@@ -350,5 +350,188 @@ For A = 12, B = 10
 ## Result
 All six logical operations were simulated using only AND and CMA. For A = 12 and B = 10 the outputs are 
 AND = 8, OR = 14, NOT A = −13, NOT B = −11, XOR = 6, NOR = −15, NAND = −9.
+---
+# Practical-6 Memory-reference Instructions: ADD, LDA, STA, BUN, ISZ
+| Aim | To write an assembly program that simulates the memory-reference instructions ADD, LDA, STA, BUN and ISZ. |
+|:---|:---:|
+| Tool | CPU Sim 4.0.11 (Java 8 with JavaFX) |
+
+## Theory
+A memory-reference instruction has an opcode 0–6 and a 12-bit address. During fetch AR ← IR(0–11), so at T4 onwards AR holds the address of the operand (the effective address, since I = 0).
+| Symbol | Code | Execute micro-operations |
+|:---|:---:|:---:|
+| ADD | 1xxx | DR ← M[AR]; AC ← AC + DR, E ← Cout |
+| LDA | 2xxx | DR ← M[AR]; AC ← DR |
+| STA | 3xxx | M[AR] ← AC |
+| BUN | 4xxx | PC<-AR |
+| ISZ | 6xxx | DR ← M[AR]; DR ← DR + 1; M[AR] ← DR; if DR = 0 then PC ← PC + 1 |
+
+## Program
+
+```
+; ==============================================================
+; Practical 6 : Memory-reference instructions ADD, LDA, STA, BUN, ISZ
+; Machine : BasicComputer.cpu (Mano's Basic Computer)
+;
+; Task : multiply X by N using repeated addition.
+; PROD = X + X + ... + X (N times)
+; CTR holds -N; ISZ adds 1 to it on every pass and
+; skips the BUN when it reaches 0, ending the loop.
+; Data : X = 5, N = 3 (CTR = -3) -> PROD = 15
+; ==============================================================
+LOOP: LDA PROD ; AC <- M[PROD]
+ ADD X ; AC <- AC + M[X]
+ STA PROD ; M[PROD] <- AC
+ ISZ CTR ; M[CTR] <- M[CTR] + 1; skip next if it became 0
+ BUN LOOP ; PC <- LOOP (repeat)
+ LDA PROD ; AC <- final product
+ HLT
+X: .data 1 5 ; multiplicand
+CTR: .data 1 -3 ; -N (loop counter)
+PROD: .data 1 0 ; product
+```
+## After Assembling and loading the program
+
+<img width="1112" height="667" alt="Image" src="https://github.com/user-attachments/assets/49920397-b04d-4f3d-9cdd-788bf28d0022" />
 
 
+## After step 4 in debug mode:
+
+<img width="588" height="512" alt="image" src="https://github.com/user-attachments/assets/66a1390b-c93e-48e8-a70c-4176fcf1efc3" />
+
+
+## After step 5:
+
+<img width="592" height="410" alt="image" src="https://github.com/user-attachments/assets/5e60c1aa-518d-4e73-ac88-ada79321303f" />
+
+## After step 14:
+
+<img width="573" height="431" alt="image" src="https://github.com/user-attachments/assets/17a82386-9a9d-48fc-af87-94c32fcc6c86" />
+
+## After step 16:
+
+<img width="580" height="582" alt="Image" src="https://github.com/user-attachments/assets/e1306ce3-3e9f-4d0f-80c3-f3862a311572" />
+
+## Observation 
+
+| Step | PC before | Instruction | IR (hex) | AC | DR | E | PC | AR | IR (dec) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | 0 | LDA PROD | 2009 | 0 | 0 | 0 | 1 | 9 | 8201 |
+| 2 | 1 | ADD X | 1007 | 5 | 5 | 0 | 2 | 7 | 4103 |
+| 3 | 2 | STA PROD | 3009 | 5 | 5 | 0 | 3 | 9 | 12297 |
+| 4 | 3 | ISZ CTR | 6008 | 5 | 65534 (-2) | 0 | 4 | 8 | 24584 |
+| 5 | 4 | BUN LOOP | 4000 | 5 | 65534 (-2) | 0 | 0 | 0 | 16384 |
+| 6 | 0 | LDA PROD | 2009 | 5 | 5 | 0 | 1 | 9 | 8201 |
+| 7 | 1 | ADD X | 1007 | 10 | 5 | 0 | 2 | 7 | 4103 |
+| 8 | 2 | STA PROD | 3009 | 10 | 5 | 0 | 3 | 9 | 12297 |
+| 9 | 3 | ISZ CTR | 6008 | 10 | 65535 (-1) | 0 | 4 | 8 | 24584 |
+| 10 | 4 | BUN LOOP | 4000 | 10 | 65535 (-1) | 0 | 0 | 0 | 16384 |
+| 11 | 0 | LDA PROD | 2009 | 10 | 10 | 0 | 1 | 9 | 8201 |
+| 12 | 1 | ADD X | 1007 | 15 | 5 | 0 | 2 | 7 | 4103 |
+| 13 | 2 | STA PROD | 3009 | 15 | 5 | 0 | 3 | 9 | 12297 |
+| 14 | 3 | ISZ CTR | 6008 | 15 | 0 | 0 | 5 | 8 | 24584 |
+| 15 | 5 | LDA PROD | 2009 | 15 | 15 | 0 | 6 | 9 | 8201 |
+| 16 | 6 | HLT | 7001 | 15 | 15 | 0 | 7 | 1 | 28673 |
+Values in brackets are the signed interpretation of 16-bit numbers. Final memory: X = 5, CTR = 0, PROD = 
+15.
+
+
+## Result
+The memory-reference instructions were simulated: LDA, ADD and STA computed the running product, ISZ 
+counted the passes and skipped the branch when the counter reached zero, and BUN formed the loop. 
+Final AC = PROD = 15.
+---
+
+# Practical-7 Register-reference Instructions: CLA, CMA, CME, HLT
+| Aim | To simulate the register-reference instructions CLA, CMA, CME and HLT and determine AC, E, PC, AR and IR in decimal after execution.|
+|:---|:---:|
+| Tool | CPU Sim 4.0.11 (Java 8 with JavaFX) |
+
+## Theory
+Register-reference instructions have the code 7xxx: opcode 111 with I = 0. The low 12 bits select one 
+operation on AC or E, executed at T3, with no memory access. Because the fetch routine always performs 
+AR ← IR(0–11), AR ends up holding the low 12 bits of the instruction code (for example 800 hex = 2048 for 
+CLA).
+| Symbol | Code(Hex) | Bit set in IR(0–11) | Micro-operation |
+|:---|:---:|:---:|:---:|
+| CLA | 7800 | B11 | AC<-0 |
+| CMA | 7200 | B9 | AC<-AC' |
+| CME | 7100 | B8 | E<-E' |
+| HLT | 7001 | B0 | S<-1(halt) |
+
+## Program
+```
+; ==============================================================
+; Practical 7 : Register-reference instructions CLA, CMA, CME, HLT
+; Machine : BasicComputer.cpu (Mano's Basic Computer)
+; Observe AC, E, PC, AR and IR (Decimal) after every instruction.
+; ==============================================================
+ LDA NUM ; set-up: AC <- 25 so that CLA has something to clear
+ CLA ; 7800 : AC <- 0
+ CMA ; 7200 : AC <- AC' (0000 -> FFFF = -1)
+ CME ; 7100 : E <- E' (0 -> 1)
+ HLT ; 7001 : S <- 1 (halt)
+NUM: .data 1 25
+```
+## After assembling and loading the program
+
+<img width="1793" height="865" alt="Image" src="https://github.com/user-attachments/assets/cfedc2bc-e3d4-4f48-9cd5-acc37a6dbf54" />
+
+## After step 1:
+
+<img width="601" height="520" alt="Image" src="https://github.com/user-attachments/assets/a8ebc29b-369a-4cbd-9887-d11f41bb9fc7" />
+
+## After step 2:
+
+<img width="583" height="547" alt="Image" src="https://github.com/user-attachments/assets/153672bc-8833-4e27-850e-a6e47d3e3939" />
+
+## After step 3:
+
+<img width="575" height="620" alt="Image" src="https://github.com/user-attachments/assets/4e0b0f7a-43a7-4019-9a70-ef3c10e1abec" />
+
+## After step 4:
+
+<img width="611" height="587" alt="Image" src="https://github.com/user-attachments/assets/d19887ed-baee-4fe8-b0c0-19fd9959db8e" />
+
+## After step 5:
+
+<img width="593" height="661" alt="Image" src="https://github.com/user-attachments/assets/f7d2111a-3208-415d-8d2f-45ac8e580ab1" />
+
+## Observation 
+**Register contents (decimal) after each instruction**
+
+| Step | PC before | Instruction | IR (hex) | AC | E | PC | AR | IR (dec) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | 0 | LDA NUM | 2005 | 25 | 0 | 1 | 5 | 8197 |
+| 2 | 1 | CLA | 7800 | 0 | 0 | 2 | 2048 | 30720 |
+| 3 | 2 | CMA | 7200 | 65535 (-1) | 0 | 3 | 512 | 29184 |
+| 4 | 3 | CME | 7100 | 65535 (-1) | 1 | 4 | 256 | 28928 |
+| 5 | 4 | HLT | 7001 | 65535 (-1) | 1 | 5 | 1 | 28673 |
+
+**Final register contents after HLT**
+
+| Register | Decimal | Hex | Explanation |
+| :--- | :--- | :--- | :--- |
+| AC | 65535 (signed -1) | FFFF | CLA cleared it, CMA complemented all bits |
+| E | 1 | 1 | CME complemented E from 0 to 1 |
+| PC | 5 | 005 | Address after HLT (HLT is at address 4) |
+| AR | 1 | 001 | IR(0–11) of HLT = 001 |
+| IR | 28673 | 7001 | Code of HLT |
+
+## Result
+After execution: AC = 65535 (−1), E = 1, PC = 5, AR = 1, IR = 28673.
+---
+
+# Practical-8 Register-reference Instructions: INC, SPA, SNA, SZE
+
+| Aim |To simulate INC, SPA, SNA and SZE and determine AC, E, PC, AR and IR in decimal after execution. |
+|:---|:---:|
+| Tool | CPU Sim 4.0.11 (Java 8 with JavaFX) |
+
+## Theory
+| Symbol | Code(Hex) | Micro-Operation|
+|:---|:---:|:---:|
+| INC | 7020 | AC<-AC+1 |
+| SPA | 7010 | if AC(15) = 0 (AC positive or zero) then PC ← PC + 1 |
+| SNA | 7008 | if AC(15) = 1 (AC negative) then PC ← PC + 1 |
+| SZE | 7002 | if E = 0 then PC ← PC + 1 |
