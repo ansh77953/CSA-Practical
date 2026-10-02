@@ -133,3 +133,39 @@ Now, Click Step by Micro five times and watch the register changed by each micro
 | 3 | PC+1->PC | 0 | 1 | 63388|
 | 4 | IR(0-11)->AR | 2048(800) | 1 | 63488 |
 | 5 | Decode-IR | 2048 | 1 | 63488->INP |
+
+# Result
+The fetch routine PC->AR, M[AR]->IR, PC+1->PC, IR(0-11)->AR, decode-IR was created and 
+verified by single-stepping the first instruction of a program.
+---
+# Practical-3  Add Operation on Two User Entered Numbers 
+| Aim | To write an assembly program that reads two numbers entered by the user, adds them and displays the sum.|
+| :--- | :---: |
+| Tool | CPU Sim 4.0.11 (Java 8 with JavaFX) |
+## Theory 
+INP reads an integer into AC. STA A saves it in memory because the next INP overwrites AC. ADD A is a memory-reference instruction: DR ← M[A], then AC ← AC + DR and the carry out of bit 15 goes to E. OUT displays AC and HLT stops the machine.
+Numbers are 16-bit two's complement, so the range is −32768 to +32767
+## Program 
+
+```
+; ==============================================================
+; Practical 3 : ADD operation on two user-entered numbers
+; Machine : BasicComputer.cpu (Mano's Basic Computer)
+; Logic : SUM = A + B
+; ==============================================================
+ INP ; AC <- first number typed by the user
+ STA A ; M[A] <- AC (save first number)
+ INP ; AC <- second number
+ ADD A ; AC <- AC + M[A], E <- carry out
+ STA SUM ; M[SUM] <- AC (save the result)
+ OUT ; display AC (the sum)
+ HLT ; stop
+A: .data 1 0 ; first number
+SUM: .data 1 0 ; result
+```
+
+## After assembling and loading
+
+<img width="1917" height="1198" alt="image" src="https://github.com/user-attachments/assets/7b4a6cf8-a7ba-499c-a64e-ff0acdf40b99" />
+
+
