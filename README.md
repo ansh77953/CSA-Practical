@@ -74,4 +74,22 @@ Every instruction cycle begins with the same fetch and decode phase. In Mano's B
 |:---:|
 |T1: IR<-M[AR], PC<-PC+1 |
 |T2: D0...D7<-Decode IR(12-14), AR<-IR(0-11), I<-IR(15) |
+## Fetch Sequence 
+image 
+## Testing the routine 
+Open the P03_ADD.a file in CPUSim, press Ctrl+2 (assemble & load), then Ctrl+D (debug mode). Set 
+the registers' Data selector to Unsigned Dec.
 
+image
+
+Now, Click Step by Micro five times and watch the register changed by each microinstruction
+
+## Observation 
+| Micro-step | Microinstruction | Ar | PC | IR |
+|:---|:---:|:---:|:---:|---:|
+| Start | - | 0 | 0 | 0 |
+| 1 | PC->AR | 0 | 0 | 0 |
+| 2 | M[AR]->IR | 0 | 0 | 63488(F800) |
+| 3 | PC+1->PC | 0 | 1 | 63388|
+| 4 | IR(0-11)->AR | 2048(800) | 1 | 63488 |
+| 5 | Decode-IR | 2048 | 1 | 63488->INP |
