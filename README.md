@@ -137,6 +137,7 @@ Now, Click Step by Micro five times and watch the register changed by each micro
 # Result
 The fetch routine PC->AR, M[AR]->IR, PC+1->PC, IR(0-11)->AR, decode-IR was created and 
 verified by single-stepping the first instruction of a program.
+
 ---
 # Practical-3  Add Operation on Two User Entered Numbers 
 | Aim | To write an assembly program that reads two numbers entered by the user, adds them and displays the sum.|
@@ -240,6 +241,7 @@ DIFF: .data 1 0 ; result
 ## Result
 The program subtracts two user-entered numbers using the 2's complement; 10 − 5 = 5 and -5 - (-5) = 0.
 
+---
 # Practical-5 Logical Operations: AND, OR, NOT, XOR, NOR, NAND
 | Aim | To write an assembly program that performs AND, OR, NOT, XOR, NOR and NAND on two userentered numbers. |
 |:---|:---:|
@@ -350,6 +352,7 @@ For A = 12, B = 10
 ## Result
 All six logical operations were simulated using only AND and CMA. For A = 12 and B = 10 the outputs are 
 AND = 8, OR = 14, NOT A = −13, NOT B = −11, XOR = 6, NOR = −15, NAND = −9.
+
 ---
 # Practical-6 Memory-reference Instructions: ADD, LDA, STA, BUN, ISZ
 | Aim | To write an assembly program that simulates the memory-reference instructions ADD, LDA, STA, BUN and ISZ. |
@@ -440,6 +443,7 @@ Values in brackets are the signed interpretation of 16-bit numbers. Final memory
 The memory-reference instructions were simulated: LDA, ADD and STA computed the running product, ISZ 
 counted the passes and skipped the branch when the counter reached zero, and BUN formed the loop. 
 Final AC = PROD = 15.
+
 ---
 
 # Practical-7 Register-reference Instructions: CLA, CMA, CME, HLT
@@ -520,6 +524,7 @@ NUM: .data 1 25
 
 ## Result
 After execution: AC = 65535 (−1), E = 1, PC = 5, AR = 1, IR = 28673.
+
 ---
 
 # Practical-8 Register-reference Instructions: INC, SPA, SNA, SZE
@@ -535,3 +540,32 @@ After execution: AC = 65535 (−1), E = 1, PC = 5, AR = 1, IR = 28673.
 | SPA | 7010 | if AC(15) = 0 (AC positive or zero) then PC ← PC + 1 |
 | SNA | 7008 | if AC(15) = 1 (AC negative) then PC ← PC + 1 |
 | SZE | 7002 | if E = 0 then PC ← PC + 1 |
+
+A skip instruction increments PC once more when its condition is true, so the next instruction is not executed. In the program every skip instruction is followed by a HLT “trap”: the program reaches its last instruction only if every skip works. AC starts at −2 so that both a negative and a non-negative value are tested.
+
+## Program
+
+```
+; ==============================================================
+; Practical 8 : Register-reference instructions INC, SPA, SNA, SZE
+; Machine : BasicComputer.cpu (Mano's Basic Computer)
+; A skip instruction adds 1 to PC when its condition is true, so
+; the instruction after it is NOT executed. Each HLT below is a
+; "trap": the program only reaches the final HLT if every skip works.
+; ==============================================================
+ LDA NUM ; set-up: AC <- -2
+ INC ; 7020 : AC <- AC + 1 (-2 -> -1)
+ SNA ; 7008 : AC < 0 (negative) -> skip next
+ HLT ; (skipped)
+ INC ; 7020 : AC <- AC + 1 (-1 -> 0)
+ SPA ; 7010 : AC(15) = 0 (positive) -> skip next
+ HLT ; (skipped)
+ SZE ; 7002 : E = 0 -> skip next
+ HLT ; (skipped)
+ INC ; 7020 : AC <- AC + 1 (0 -> 1)
+ HLT ; 7001 : halt
+NUM: .data 1 -2
+```
+
+## After Assembling and Loading:
+
