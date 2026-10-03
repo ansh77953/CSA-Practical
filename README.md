@@ -627,3 +627,42 @@ INC, SPA, SNA and SZE were simulated and every skip was verified. After executio
 | Aim | To simulate CIR and CIL and determine AC, E, PC, AR and IR in decimal after execution. |
 |:---|:---:|
 | Tool | CPU Sim 4.0.11 (Java 8 with JavaFX) |
+
+## Theory
+CIR and CIL circulate (rotate) the 17-bit combination of E and AC by one position:
+
+| CIR (7080): E -> AC(15) -> AC(14) -> ... -> AC(0) -> E (rotate right) |
+|:---|
+| CIL (7040): E <- AC(15) <- AC(14) <- ... <- AC(0) <- E (rotate left) |
+
+No bit is lost, so a CIR followed by a CIL restores the original AC and E. In CPU Sim each rotation uses a 1-bit scratch register TMP: the bit leaving AC is saved in TMP, AC is shifted, the old E enters the vacated bit, and TMP is copied into E.
+
+| E AC |
+|:---|
+| start 0 0000 0000 0000 1001 = 9 |
+| CIR 1 0000 0000 0000 0100 = 4 (bit 0 of AC went to E) |
+| CIR 0 1000 0000 0000 0010 = 32770 (old E=1 entered AC(15)) |
+| CIL 1 0000 0000 0000 0100 = 4 |
+| CIL 0 0000 0000 0000 1001 = 9 (original value restored) |
+
+## Program
+
+```
+; ==============================================================
+; Practical 9 : Register-reference instructions CIR, CIL
+; Machine : BasicComputer.cpu (Mano's Basic Computer)
+; CIR : circulate E and AC right (E -> AC(15), AC(0) -> E)
+; CIL : circulate E and AC left (AC(15) -> E, E -> AC(0))
+; ==============================================================
+ LDA NUM ; set-up: AC <- 9 = 0000 0000 0000 1001, E = 0
+ CIR ; 7080 : AC = 0000 0000 0000 0100 (4), E = 1
+ CIR ; 7080 : AC = 1000 0000 0000 0010 (-32766), E = 0
+ CIL ; 7040 : AC = 0000 0000 0000 0100 (4), E = 1
+ CIL ; 7040 : AC = 0000 0000 0000 1001 (9), E = 0
+ HLT
+NUM: .data 1 9
+```
+
+## After assembling and loading
+
+<img width="1917" height="1198" alt="image" src="https://github.com/user-attachments/assets/5e0b11f0-0605-4f6c-b7b6-6120286f7675" />
