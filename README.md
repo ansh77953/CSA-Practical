@@ -685,8 +685,31 @@ NUM: .data 1 9
 
 ## After step 5:
 
-<img width="796" height="753" alt="image" src="https://github.com/user-attachments/assets/012c43df-e67b-4833-b5a5-aa69fd2daaeb" />
+<img width="796" height="753" alt="Image" src="https://github.com/user-attachments/assets/a5db6eee-c3bc-4a3d-9577-bc6314bfaee6" />
 
 ## After step 6:
 
-<img width="773" height="893" alt="image" src="https://github.com/user-attachments/assets/79c61be4-8bae-49ea-83b5-f5b11dc72227" />
+<img width="773" height="893" alt="Image" src="https://github.com/user-attachments/assets/9405970c-7b59-4e25-842e-9b0f84ec1fba" />
+
+## Observation
+Register contents (decimal) after each instruction
+| Step | PC before | Instruction | IR (hex) | AC | E | PC | AR | IR (dec) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | 0 | LDA NUM | 2006 | 9 | 0 | 1 | 6 | 8198 |
+| 2 | 1 | CIR | 7080 | 4 | 1 | 2 | 128 | 28800 |
+| 3 | 2 | CIR | 7080 | 32770 (-32766) | 0 | 3 | 128 | 28800 |
+| 4 | 3 | CIL | 7040 | 4 | 1 | 4 | 64 | 28736 |
+| 5 | 4 | CIL | 7040 | 9 | 0 | 5 | 64 | 28736 |
+| 6 | 5 | HLT | 7001 | 9 | 0 | 6 | 1 | 28673 |
+
+Final register content after halt
+| Register | Final value (decimal) |
+|:---|:---:|
+| AC | 9 |
+| E | 0 |
+| PC| 6 |
+| AR | 1 |
+| IR | 28673 (7001 hex) |
+
+## Result
+CIR and CIL were simulated; two right rotations followed by two left rotations restored AC = 9. After execution: AC = 9, E = 0, PC = 6, AR = 1, IR = 28673. After each individual instruction the values are as in the table above.
