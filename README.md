@@ -481,23 +481,25 @@ NUM: .data 1 25
 
 <img width="1793" height="865" alt="Image" src="https://github.com/user-attachments/assets/cfedc2bc-e3d4-4f48-9cd5-acc37a6dbf54" />
 
-## After step 1:
+## After step 1:LDA NUM: AC = 25
 
 <img width="601" height="520" alt="Image" src="https://github.com/user-attachments/assets/a8ebc29b-369a-4cbd-9887-d11f41bb9fc7" />
 
-## After step 2:
+## After step 2:CLA: AC = 0, AR = 2048 (800 hex
 
 <img width="583" height="547" alt="Image" src="https://github.com/user-attachments/assets/153672bc-8833-4e27-850e-a6e47d3e3939" />
 
-## After step 3:
+## After step 3:CMA: AC = 65535 (FFFF hex = −1), AR = 512
+
 
 <img width="575" height="620" alt="Image" src="https://github.com/user-attachments/assets/4e0b0f7a-43a7-4019-9a70-ef3c10e1abec" />
 
-## After step 4:
+## After step 4:CME: E = 1, AR = 256
+
 
 <img width="611" height="587" alt="Image" src="https://github.com/user-attachments/assets/d19887ed-baee-4fe8-b0c0-19fd9959db8e" />
 
-## After step 5:
+## After step 5:HLT: S = 1, execution halted
 
 <img width="593" height="661" alt="Image" src="https://github.com/user-attachments/assets/f7d2111a-3208-415d-8d2f-45ac8e580ab1" />
 
@@ -568,4 +570,13 @@ NUM: .data 1 -2
 ```
 
 ## After Assembling and Loading:
+
+<img width="2970" height="1440" alt="Image" src="https://github.com/user-attachments/assets/6b646a3b-ccc4-4b98-8d01-6ed0d854b505" />
+
+## After step 1:
+<img width="1024" height="805" alt="Image" src="https://github.com/user-attachments/assets/75bbdae6-fe2a-43ed-bf8b-53799c019f64" />
+
+## After step 2:
+<img width="1024" height="805" alt="Image" src="https://github.com/user-attachments/assets/edfa4bab-8820-4586-ae50-1e53edea50cd" />
+
 
