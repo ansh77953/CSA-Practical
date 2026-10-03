@@ -813,5 +813,6 @@ Sample runs (each verified in CPU Sim)
 
 ## Result
 The program successfully keeps running until 0 is given as input, in the case above, The program adds integers until 0 is read and displays the sum: 3 + 7 + 2 = 12.
+
 ----
-END
+# END
