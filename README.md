@@ -579,4 +579,51 @@ NUM: .data 1 -2
 ## After step 2:
 <img width="1024" height="805" alt="Image" src="https://github.com/user-attachments/assets/edfa4bab-8820-4586-ae50-1e53edea50cd" />
 
+## After step 3:
 
+<img width="2176" height="1515" alt="Image" src="https://github.com/user-attachments/assets/5f122c95-4ccf-47dc-8c4b-38662f1554eb" />
+
+## After step 4:
+
+<img width="2133" height="1712" alt="Image" src="https://github.com/user-attachments/assets/34839b05-fe49-40a9-973a-d39490601a73" />
+
+## After step 5:
+
+<img width="2027" height="1578" alt="Image" src="https://github.com/user-attachments/assets/8173ab51-72da-45a9-81e7-33160268c405" />
+
+## After step 6:
+
+<img width="2179" height="1607" alt="Image" src="https://github.com/user-attachments/assets/fedf67ea-e776-4658-98eb-cb3e62fdc208" />
+
+## After step 7:
+
+<img width="2092" height="1680" alt="Image" src="https://github.com/user-attachments/assets/5265402b-52a7-40a5-a625-fb82fafa3b6c" />
+
+## After step 8:
+
+<img width="2016" height="1666" alt="Image" src="https://github.com/user-attachments/assets/eeb3b5b1-43b0-4f27-aa91-60ba6e814852" />
+
+## Observation 
+Register contents (decimal) after each instruction
+| Step | PC before | Instruction | IR (hex) | AC | E | PC | AR | IR (dec) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | 0 | LDA NUM | 200B | 65534 (-2) | 0 | 1 | 11 | 8203 |
+| 2 | 1 | INC | 7020 | 65535 (-1) | 0 | 2 | 32 | 28704 |
+| 3 | 2 | SNA | 7008 | 65535 (-1) | 0 | 4 | 8 | 28680 |
+| 4 | 4 | INC | 7020 | 0 | 0 | 5 | 32 | 28704 |
+| 5 | 5 | SPA | 7010 | 0 | 0 | 7 | 16 | 28688 |
+| 6 | 7 | SZE | 7002 | 0 | 0 | 9 | 2 | 28674 |
+| 7 | 9 | INC | 7020 | 1 | 0 | 10 | 32 | 28704 |
+| 8 | 10 | HLT | 7001 | 1 | 0 | 11 | 1 | 28673 |
+
+The instructions at addresses 3, 6 and 8 were never executed: the PC column goes 2 → 4, 5 → 7 and 7 → 9.
+
+## Result
+INC, SPA, SNA and SZE were simulated and every skip was verified. After execution: AC = 1, E = 0, PC = 11, AR = 1, IR = 28673.
+
+---
+# Practical-9 Register-reference Instructions: CIR, CIL
+
+| Aim | To simulate CIR and CIL and determine AC, E, PC, AR and IR in decimal after execution. |
+|:---|:---:|
+| Tool | CPU Sim 4.0.11 (Java 8 with JavaFX) |
