@@ -673,15 +673,15 @@ NUM: .data 1 9
 
 ## After step 2:
 
-<img width="862" height="772" alt="image" src="https://github.com/user-attachments/assets/b362e353-50da-4f90-bad5-16e5b5a2aa2d" />
+<img width="2180" height="1952" alt="Image" src="https://github.com/user-attachments/assets/b568c604-9826-43df-8181-54874ffcbd02" />
 
 ## After step 3:
 
-<img width="770" height="698" alt="image" src="https://github.com/user-attachments/assets/cc38641a-6eec-4105-88cb-74f94ea83868" />
+<img width="2154" height="1952" alt="Image" src="https://github.com/user-attachments/assets/eae89493-3fc6-4cc9-8535-9cdcf91cc366" />
 
 ## After step 4:
 
-<img width="751" height="606" alt="image" src="https://github.com/user-attachments/assets/50a6a32a-3026-4469-ade1-8280c68daf4b" />
+<img width="2300" height="1856" alt="Image" src="https://github.com/user-attachments/assets/38588286-4517-4c65-9baf-f34c192e3bfb" />
 
 ## After step 5:
 
