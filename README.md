@@ -713,3 +713,34 @@ Final register content after halt
 
 ## Result
 CIR and CIL were simulated; two right rotations followed by two left rotations restored AC = 9. After execution: AC = 9, E = 0, PC = 6, AR = 1, IR = 28673. After each individual instruction the values are as in the table above.
+
+---
+# Practical 10: Sum of Integers until a Negative Number is Read
+
+| Aim | To write an assembly program that reads integers and adds them until a negative non-zero number is read, then outputs the sum (not including the last number). |
+|:---|:---:|
+| Tool | CPU Sim 4.0.11 (Java 8 with JavaFX) |
+
+## Theory
+
+This is a sentinel-controlled loop: the negative number marks the end of the data. After each INP, SPA skips the exit branch when AC ≥ 0; for a negative number the skip does not happen and BUN DONE leaves the loop before the number is added. Zero counts as non-negative, so it is added (it does not change the sum).
+
+## Program
+
+```
+; ==============================================================
+; Practical 10 : Read integers and add them until a negative
+; non-zero number is read; output the sum
+; (the negative number is NOT included).
+; Machine : BasicComputer.cpu (Mano's Basic Computer)
+; ==============================================================
+LOOP: INP ; AC <- next number
+ SPA ; if AC >= 0 skip the exit branch
+ BUN DONE ; AC < 0 : leave the loop
+ ADD SUM ; AC <- AC + SUM
+ STA SUM ; SUM <- AC
+ BUN LOOP ; read the next number
+DONE: LDA SUM ; AC <- SUM
+ OUT ; display the sum
+ HLT
+SUM: .data 1 0 ; running total
