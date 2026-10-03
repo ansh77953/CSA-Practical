@@ -752,7 +752,7 @@ SUM: .data 1 0 ; running total
 
 ## Output after running the program and giving inputs 3, 9, 1 and finally -5
 
-<img width="1312" height="800" alt="Image" src="https://github.com/user-attachments/assets/c1342ab8-6190-4c68-97e5-4a10d2251427" />
+<img width="1312" height="658" alt="Image" src="https://github.com/user-attachments/assets/b6144ada-1662-4fda-862e-77c2c86ba77f" />
 
 ## Output
 Sample runs (each verified in CPU Sim)
@@ -763,4 +763,55 @@ Sample runs (each verified in CPU Sim)
 | 8 ,6 , -2 | 14 |
 
 ## Result
-The program successfully keeps running until a negative input is given, in the case above, The program adds integers until a negative number is read and displays the sum excluding it: 4 + 10 + 0 + 6 = 20.
+The program successfully keeps running until a negative input is given, in the case above, The program adds integers until a negative number is read and displays the sum excluding it: 3 + 9 + 1 = 13.
+
+---
+# Practical 11: Sum of Integers until Zero is Read
+
+| Aim | To write an assembly program that reads integers and adds them until zero is read, then outputs the sum. |
+|:---|:---:|
+| Tool | CPU Sim 4.0.11 (Java 8 with JavaFX) |
+
+## Theory
+Here the sentinel is 0. SZA skips the next instruction when AC = 0. Because a skip can only jump over one instruction, two branches are used: when AC ≠ 0 the BUN ADDIT executes and the number is added; when AC = 0 that branch is skipped and BUN DONE ends the loop. Negative numbers are added normally.
+
+## Program
+```
+; ==============================================================
+; Practical 11 : Read integers and add them until zero is read;
+; then output the sum.
+; Machine : BasicComputer.cpu (Mano's Basic Computer)
+; ==============================================================
+LOOP: INP ; AC <- next number
+ SZA ; if AC != 0 do not skip ...
+ BUN ADDIT ; ... so go and add it
+ BUN DONE ; AC = 0 (BUN ADDIT was skipped) : finish
+ADDIT: ADD SUM ; AC <- AC + SUM
+ STA SUM ; SUM <- AC
+ BUN LOOP ; read the next number
+DONE: LDA SUM ; AC <- SUM
+ OUT ; display the sum
+ HLT
+SUM: .data 1 0 ; running total
+```
+
+## After assembling and loading the program
+
+<img width="1777" height="885" alt="Image" src="https://github.com/user-attachments/assets/5aa7f7e2-bc33-46ee-9677-488d397c70f6" />
+
+## Output after running the program and giving inputs 3, 7, 2 and finally 0
+
+<img width="1024" height="627" alt="Image" src="https://github.com/user-attachments/assets/9172cb3f-6710-4924-b7c3-57cc2d4086b2" />
+
+## Observation 
+Sample runs (each verified in CPU Sim)
+| Input(s) typed | Output displayed |
+|:---|:---|
+| 3, 7, 2, 0 | 12 |
+| 0 | 0 |
+| 50, 60, 0| 110 |
+
+## Result
+The program successfully keeps running until 0 is given as input, in the case above, The program adds integers until 0 is read and displays the sum: 3 + 7 + 2 = 12.
+----
+END
