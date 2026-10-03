@@ -744,3 +744,23 @@ DONE: LDA SUM ; AC <- SUM
  OUT ; display the sum
  HLT
 SUM: .data 1 0 ; running total
+```
+
+## After Assembling and Loading the Program
+
+<img width="1024" height="517" alt="Image" src="https://github.com/user-attachments/assets/c58417e2-556b-4522-a4d4-32572bce5b14" />
+
+## Output after running the program and giving inputs 3, 9, 1 and finally -5
+
+<img width="1312" height="800" alt="Image" src="https://github.com/user-attachments/assets/c1342ab8-6190-4c68-97e5-4a10d2251427" />
+
+## Output
+Sample runs (each verified in CPU Sim)
+| Input(s) typed | Output displayed |
+|:---|:---:|
+| 3, 9, 1, -5 | 13 |
+| -5 | 0 |
+| 8 ,6 , -2 | 14 |
+
+## Result
+The program successfully keeps running until a negative input is given, in the case above, The program adds integers until a negative number is read and displays the sum excluding it: 4 + 10 + 0 + 6 = 20.
