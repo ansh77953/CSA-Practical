@@ -665,4 +665,28 @@ NUM: .data 1 9
 
 ## After assembling and loading
 
-<img width="1917" height="1198" alt="image" src="https://github.com/user-attachments/assets/5e0b11f0-0605-4f6c-b7b6-6120286f7675" />
+<img width="1586" height="992" alt="Image" src="https://github.com/user-attachments/assets/914c86c9-0255-4886-94b2-285ef49b0deb" />
+
+## After step 1:
+
+<img width="2800" height="1504" alt="Image" src="https://github.com/user-attachments/assets/8c5d3c71-94fe-4350-8cfc-05391784ecbd" />
+
+## After step 2:
+
+<img width="862" height="772" alt="image" src="https://github.com/user-attachments/assets/b362e353-50da-4f90-bad5-16e5b5a2aa2d" />
+
+## After step 3:
+
+<img width="770" height="698" alt="image" src="https://github.com/user-attachments/assets/cc38641a-6eec-4105-88cb-74f94ea83868" />
+
+## After step 4:
+
+<img width="751" height="606" alt="image" src="https://github.com/user-attachments/assets/50a6a32a-3026-4469-ade1-8280c68daf4b" />
+
+## After step 5:
+
+<img width="796" height="753" alt="image" src="https://github.com/user-attachments/assets/012c43df-e67b-4833-b5a5-aa69fd2daaeb" />
+
+## After step 6:
+
+<img width="773" height="893" alt="image" src="https://github.com/user-attachments/assets/79c61be4-8bae-49ea-83b5-f5b11dc72227" />
