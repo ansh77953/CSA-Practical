@@ -56,15 +56,15 @@ A control unit that runs a stored list of microinstructions for each instruction
 
 ## Shift:
 
-<img width="1178" height="898" alt="image" src="https://github.com/user-attachments/assets/a889d384-a5f5-4ccb-a34c-4fcb4e6a924e" />
+<img width="1080" height="795" alt="Image" src="https://github.com/user-attachments/assets/198bd203-99b1-44ab-b4ea-082a408813ef" />
 
 ## Set:
 
-<img width="1133" height="832" alt="image" src="https://github.com/user-attachments/assets/6fd9076b-3296-4daf-bd74-4ebf6cc84228" />
+<img width="969" height="743" alt="Image" src="https://github.com/user-attachments/assets/9d3f96ef-465f-486e-bc6d-1bc3518b171f" />
 
 ## Test:
 
-<img width="822" height="737" alt="image" src="https://github.com/user-attachments/assets/6569b1b7-8d7e-4640-be60-82a59e1b042c" />
+<img width="969" height="743" alt="Image" src="https://github.com/user-attachments/assets/9d3f96ef-465f-486e-bc6d-1bc3518b171f" />
 
 ## Decode:
 
@@ -85,7 +85,6 @@ A control unit that runs a stored list of microinstructions for each instruction
 ## Creating machine instructions:
 
 <img width="1528" height="1008" alt="image" src="https://github.com/user-attachments/assets/e253f9e5-89b9-421e-98a0-cb4b295eeb12" />
-<img width="1055" height="881" alt="image" src="https://github.com/user-attachments/assets/145e1ada-38cb-4ab4-b818-77a63ec865e8" />
 
 ## Execute sequence of ADD:
 
