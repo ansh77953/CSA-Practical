@@ -95,9 +95,14 @@ A control unit that runs a stored list of microinstructions for each instruction
 
 <img width="1035" height="883" alt="image" src="https://github.com/user-attachments/assets/5b6ad727-8824-4568-9b10-23eaa8b1c532" />
 
-# Result:
+## Observation 
+The Hardware Modules dialog lists the eight registers, the two condition bits and the 4096-word RAM; 33 
+microinstructions and 20 machine instructions are defined. Loading the ADD program produces the 
+expected machine code (Figure 2 in section A.3)
+
+## Result:
  A machine based on the Basic Computer architecture was created in CPU Sim and saved as BasicCaomputer.cpu 
- Now, we will move onto practical 2, in which there is creation of Fetch sequence, program counter and saving and after that our basic computer will be completed and we can save our machine as BasicComouter.cpu
+ 
  
 
 # Practical-2
