@@ -19,40 +19,40 @@ A CPU Sim machine is described at the register-transfer level by four kinds of o
 A control unit that runs a stored list of microinstructions for each instruction is a microprogrammed control unit, which is exactly what CPU Sim simulates.
 # Creating a new machine:
 
-<img width="590" height="400" alt="image" src="https://github.com/user-attachments/assets/e0ab6717-b7ce-4161-aac1-74781c734f67" />
+<img width="1077" height="699" alt="Image" src="https://github.com/user-attachments/assets/73a72d2b-d8ce-4e25-8cb8-f87b756dadd1" />
 
 # Creating a registers:
 
-<img width="1462" height="936" alt="image" src="https://github.com/user-attachments/assets/548a15f5-d2a9-4648-aa7b-833c1d97fbe4" />
+<img width="1080" height="667" alt="Image" src="https://github.com/user-attachments/assets/68b0bcb2-ecf0-4c51-95d8-4974b3ffb223" />
 
 # Creating the condition Bits:
 
-<img width="997" height="897" alt="image" src="https://github.com/user-attachments/assets/54da6f2e-e271-4793-9b71-35b9c553cc29" />
+<img width="1080" height="950" alt="Image" src="https://github.com/user-attachments/assets/84b8996b-34da-404c-99d5-6cfb92bab0a3" />
 
 # Creating a RAM:
 
-<img width="1241" height="1061" alt="image" src="https://github.com/user-attachments/assets/5b042690-8d35-4ee9-b444-90ad9aba9b7f" />
+<img width="1080" height="902" alt="Image" src="https://github.com/user-attachments/assets/3b1fc268-e79a-41fd-a2ff-e15757a6d6ab" />
 
 # Creating a microinstructions 
 ## TransferRtoR:
 
-<img width="883" height="698" alt="image" src="https://github.com/user-attachments/assets/e7ed16c4-9b4f-4268-af83-da107f8f473b" />
+<img width="1241" height="1061" alt="image" src="https://github.com/user-attachments/assets/5b042690-8d35-4ee9-b444-90ad9aba9b7f" />
 
 ## MemomryAccess:
 
-<img width="787" height="677" alt="image" src="https://github.com/user-attachments/assets/5a5f1554-7ccb-493e-ae6b-26028371044e" />
+<img width="1080" height="898" alt="Image" src="https://github.com/user-attachments/assets/6afd0789-66c3-45ce-bcb0-412ec91c74a4" />
 
 ## Increment:
 
-<img width="1006" height="767" alt="image" src="https://github.com/user-attachments/assets/5d77b1a6-a7f9-4fe9-85fb-acaa74efccc0" />
+<img width="1080" height="810" alt="Image" src="https://github.com/user-attachments/assets/ca785a20-0c81-4eef-b06c-628d1a94365f" />
 
 ## Arithmetic:
 
-<img width="696" height="627" alt="image" src="https://github.com/user-attachments/assets/d41b4d10-3303-4049-acba-fc2f01af673d" />
+<img width="1080" height="856" alt="Image" src="https://github.com/user-attachments/assets/a59fc019-66fb-460f-9a05-6d5c18b57716" />
 
 ## Logical:
 
-<img width="868" height="746" alt="image" src="https://github.com/user-attachments/assets/2ae3d416-5d78-4aba-b2d0-ef44649b721a" />
+<img width="936" height="707" alt="Image" src="https://github.com/user-attachments/assets/64869b73-b7f7-46f8-9b8e-ae0317d26562" />
 
 ## Shift:
 
