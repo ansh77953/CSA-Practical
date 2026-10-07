@@ -87,7 +87,7 @@ A control unit that runs a stored list of microinstructions for each instruction
 
 ## Execute sequence of ADD:
 
-<img width="919" height="647" alt="Image" src="https://github.com/user-attachments/assets/18f8c5a4-0f9e-4aaf-8023-8169099394b7" />
+<img width="946" height="770" alt="Image" src="https://github.com/user-attachments/assets/85737062-630d-4dad-908e-55d7fb903066" />
 
 ## Execute sequence of ISZ:
 
