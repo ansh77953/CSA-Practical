@@ -60,39 +60,38 @@ A control unit that runs a stored list of microinstructions for each instruction
 
 ## Set:
 
-<img width="969" height="743" alt="Image" src="https://github.com/user-attachments/assets/9d3f96ef-465f-486e-bc6d-1bc3518b171f" />
+<img width="1010" height="671" alt="Image" src="https://github.com/user-attachments/assets/e383a5c1-2ed2-4380-a637-3f51255f0226" />
 
 ## Test:
 
-<img width="969" height="743" alt="Image" src="https://github.com/user-attachments/assets/9d3f96ef-465f-486e-bc6d-1bc3518b171f" />
+<img width="923" height="808" alt="Image" src="https://github.com/user-attachments/assets/d46394ca-8069-4f02-a7ae-4f8d7d9c8aa2" />
 
 ## Decode:
 
-<img width="870" height="783" alt="image" src="https://github.com/user-attachments/assets/5f8e223a-0f2e-4fa2-8296-cae69e69c19f" />
+<img width="960" height="822" alt="Image" src="https://github.com/user-attachments/assets/1ab20bc0-eaa0-4b28-9232-248f6fbe2d9f" />
 
 ## SetconditionBit:
 
-<img width="1020" height="826" alt="image" src="https://github.com/user-attachments/assets/80e5ab67-5197-44cb-8690-e0c7166aaf57" />
+<img width="952" height="803" alt="Image" src="https://github.com/user-attachments/assets/3cf26471-6879-4327-b477-ccbf786a7bb3" />
 
 ## IO:
 
-<img width="1291" height="885" alt="image" src="https://github.com/user-attachments/assets/4dffeffc-2e1a-4ce9-9774-68e3390d300c" />
+<img width="888" height="647" alt="Image" src="https://github.com/user-attachments/assets/aabd64bb-fd09-47a7-802c-2bd5df4a3915" />
 
 ## Creating instructions field:
 
-<img width="998" height="845" alt="image" src="https://github.com/user-attachments/assets/eee23375-9dcd-4a88-9a8b-94f71e354952" />
+<img width="906" height="770" alt="Image" src="https://github.com/user-attachments/assets/96f3f427-27b4-48ae-b45e-e7208d37f95d" />
 
 ## Creating machine instructions:
-
-<img width="1528" height="1008" alt="image" src="https://github.com/user-attachments/assets/e253f9e5-89b9-421e-98a0-cb4b295eeb12" />
+<img width="919" height="647" alt="Image" src="https://github.com/user-attachments/assets/18f8c5a4-0f9e-4aaf-8023-8169099394b7" />
 
 ## Execute sequence of ADD:
 
-<img width="1156" height="912" alt="image" src="https://github.com/user-attachments/assets/cb7b0032-460d-4279-9289-a2fc71d2e3d0" />
+<img width="919" height="647" alt="Image" src="https://github.com/user-attachments/assets/18f8c5a4-0f9e-4aaf-8023-8169099394b7" />
 
 ## Execute sequence of ISZ:
 
-<img width="1035" height="883" alt="image" src="https://github.com/user-attachments/assets/5b6ad727-8824-4568-9b10-23eaa8b1c532" />
+<img width="914" height="812" alt="Image" src="https://github.com/user-attachments/assets/4f413554-fb81-4c1a-8d8f-9fc42ffc845f" />
 
 ## Observation 
 The Hardware Modules dialog lists the eight registers, the two condition bits and the 4096-word RAM; 33 
